@@ -1,0 +1,47 @@
+
+<style type="text/css">
+  #googlemap {
+    width: 100%;
+    height: 380px;
+    border: #5f9ea0 solid 2px;
+    margin: 0 auto;
+  }
+</style>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+  google.maps.event.addDomListener(window, 'load', init);
+  function init() {
+    var styles = [];
+    var icon = new google.maps.MarkerImage("{{ site.baseurl }}/assets/img/rubyslush.png",
+        new google.maps.Size(30,40), new google.maps.Point(0,0)
+    );
+    var latlng = new google.maps.LatLng(34.9,135.5)
+    var options = {zoom: 8, center: latlng, styles: styles };
+    var map = new google.maps.Map(document.getElementById('googlemap'), options);
+    var marker = new google.maps.Marker({position: latlng, icon: icon, map: map});
+
+    var groups = new Array();
+    groups.push({position: new google.maps.LatLng(34.7332851,135.4316003,17), content: 'Amagasaki.rb'});
+    groups.push({position: new google.maps.LatLng(34.6846493,135.5037059), content: 'Cherry.rb'});
+    groups.push({position: new google.maps.LatLng(34.684688,135.50700189999998), content: 'DDD.rb'});
+    groups.push({position: new google.maps.LatLng(34.6829263,135.49742760000004), content: 'Hommachi.rb'});
+    groups.push({position: new google.maps.LatLng(34.694927,135.19739979999997), content: '神戸.rb'});
+    groups.push({position: new google.maps.LatLng(35.0168192,135.76031320000004), content: 'Kyoto.rb'});
+    groups.push({position: new google.maps.LatLng(34.82651269999999,135.4129451), content: 'Medaka.rb'});
+    groups.push({position: new google.maps.LatLng(34.662425,135.503344,16), content: 'Minami.rb'});
+    groups.push({position: new google.maps.LatLng(34.67718188511308,135.50659015774727), content: '長堀橋.rb'});
+    groups.push({position: new google.maps.LatLng(34.9731955,134.9554349,17), content: '西脇.rb'});
+    groups.push({position: new google.maps.LatLng(34.7224488,135.29165060000003), content: 'Rails Follow-up Kobe'});
+    groups.push({position: new google.maps.LatLng(35.4415531,135.3302949), content: 'Ruby舞鶴'});
+    groups.push({position: new google.maps.LatLng(34.7369409,135.49895119999996), content: 'Shinosaka.rb'});
+    groups.push({position: new google.maps.LatLng(34.686358,135.50205419999998), content: 'SOU meetup'});
+    groups.push({position: new google.maps.LatLng(34.8785409,135.5441464,12), content: '高槻.rb'});
+    groups.push({position: new google.maps.LatLng(34.2306520595458,135.1676895618766), content: 'Wakayama.rb'});
+
+    for (i = 0; i < groups.length; i++) {
+      var marker = new google.maps.Marker({position: groups[i].position, icon: icon, map: map});
+    }
+  }
+</script>

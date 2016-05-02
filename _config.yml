@@ -1,0 +1,12 @@
+---
+markdown: kramdown
+kramdown:
+  input: GFM
+pygments: true
+baseurl: '/kansai-ruby-community'
+encoding: UTF-8
+exclude:
+- README.md
+name: "関西 Ruby コミュニティー"
+copyright: 2016, Ruby 関西
+theme: simplex
