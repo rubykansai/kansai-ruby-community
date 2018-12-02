@@ -6,6 +6,7 @@ baseurl: "/kansai-ruby-community"
 encoding: UTF-8
 exclude:
   - README.md
+  - vendor
 name: "関西 Ruby コミュニティー"
 copyright: 2018, Ruby 関西
 swatchtheme: simplex
