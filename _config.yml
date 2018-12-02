@@ -1,12 +1,11 @@
----
 markdown: kramdown
 kramdown:
   input: GFM
 highlighter: pygments
-baseurl: '/kansai-ruby-community'
+baseurl: "/kansai-ruby-community"
 encoding: UTF-8
 exclude:
-- README.md
+  - README.md
 name: "関西 Ruby コミュニティー"
-copyright: 2016, Ruby 関西
+copyright: 2018, Ruby 関西
 swatchtheme: simplex
