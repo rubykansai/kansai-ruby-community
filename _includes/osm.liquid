@@ -13,7 +13,7 @@
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
     integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
     crossorigin=""></script>
-<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+<script type="text/javascript" src="https://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
 
 <script type="text/javascript">
   var map = L.map("osm", {
@@ -21,8 +21,8 @@
     zoom:   8,
   });
 
-  var url = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-  var attribution = 'map data &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
+  var url = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  var attribution = 'map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var layer = L.tileLayer(url, {
     maxZoom:     20,
     attribution: attribution,
@@ -38,7 +38,7 @@
   });
 
   var communities = [
-    {name: "Amagasaki.rb",          position: [34.7332851, 135.4316003],               url: "http://kokucheese.com/main/tag/amagasakirb/"},
+    {name: "Amagasaki.rb",          position: [34.7332851, 135.4316003],               url: "https://kokucheese.com/main/tag/amagasakirb/"},
     {name: "Cherry.rb",             position: [34.6846493, 135.5037059],               url: "https://cherryrb.doorkeeper.jp/"},
     {name: "DDD.rb",                position: [34.684688, 135.50700189999998],         url: "https://dddrb.doorkeeper.jp/"},
     {name: "Hommachi.rb",           position: [34.6829263, 135.49742760000004],        url: "https://hommachirb.doorkeeper.jp/"},
