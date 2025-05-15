@@ -1,0 +1,58 @@
+{% assign groups = "" | split: ',' %}
+
+{% capture groups_data %}
+AKASHI.rb|https://akashi-rb.connpass.com/|/assets/img/akashirb.png|2024年 〜|
+Amagasaki.rb|http://kokucheese.com/main/tag/amagasakirb/|/assets/img/rubyhexagon.png|2009年 〜|休止中
+Cherry.rb|https://cherryrb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/6514_normal_1475125227_cherryrb_2.png|2015年 〜|休止中
+DDD.rb|https://dddrb.doorkeeper.jp/|/assets/img/dddrb.png|2015年 〜 2018年|naniwa.rb に名前を変更
+Hommachi.rb|https://hommachirb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/3505_normal_1405996867_rogo.png|2014年 〜 2015年|
+神戸.rb|https://koberb.doorkeeper.jp/|/assets/img/kobe.png|2013年 〜|
+Kyobashi.rb|https://kyobashirb.connpass.com/|/assets/img/kyobashirb.png|2024年 〜|
+Kyoto.rb|https://kyotorb.connpass.com/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/876_normal_1392124772_876_normal_1383144402_kyotorb.png|2012年 〜|
+Medaka.rb|https://medakarb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/4030_normal_1440816854_02b_b_red.png|2014年 〜|休止中？
+Minami.rb|http://qwik.jp/minamirb/|/assets/img/rubyhexagon.png|2009年 〜 2015年|
+長堀橋.rb|https://nagahori-rb-wakumoku.connpass.com/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/7972_normal_1461236949_logo.png|2016年 〜|
+naniwa.rb|https://naniwarb.doorkeeper.jp/|/assets/img/naniwarb.png|2018年 〜|
+西脇.rb & 神戸.rb|https://nishiwaki-koberb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/1145_normal_1371633191_nshgrb-doorkeeper.jpeg|2013年 〜|
+Rails Follow-up Kobe|https://rails-followup-kobe.doorkeeper.jp/|/assets/img/rubyhexagon.png|2015年 〜|
+Rails Follow-up Kyoto|https://rails-follow-up-kyoto.doorkeeper.jp/|/assets/img/rubyhexagon.png|2019年 〜|
+Rails Follow-up Osaka|https://rails-follow-up-osaka.doorkeeper.jp/|/assets/img/rubyhexagon.png|2016年 〜|
+Ruby関西|https://rubykansai.doorkeeper.jp/|/assets/img/rubykansai.png|2004年 〜|
+Ruby舞鶴|https://ruby-maizuru.connpass.com/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/4946_normal_1476599668_rubymaizuru.png|2015年 〜|
+Ruby Tuesday|https://ruby-tuesday.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/10058_normal_1554468519_ruby-tuesday-4.jpg|2019年 〜|
+Shinosaka.rb|https://shinosakarb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/2164_normal_1430137655_shinosakarb_white.png|2013年 〜|
+Wakayama.rb|https://wakayamarb.doorkeeper.jp/|https://dzpp79ucibp5a.cloudfront.net/groups_logos/1890_normal_1475653767_wakayamarb_Logo_1.png|2013年 〜|
+{% endcapture %}
+
+{% assign groups_array = groups_data | strip | split: '
+' %}
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h2>コミュニティー リスト</h2>
+  </div>
+
+  {% for group_line in groups_array %}
+    {% assign group = group_line | split: '|' %}
+    <div class="col-lg-6">
+      <div class="well col-lg-12">
+        <div class="group-logo col-lg-3">
+          <a class="group-link" href="{{ group[1] }}">
+            <img class="group-img img-responsive" src="{% if group[2] contains 'http' %}{{ group[2] }}{% else %}{{ site.baseurl }}{{ group[2] }}{% endif %}">
+          </a>
+        </div>
+        <div class="col-lg-9">
+          <p class="group-name">
+            <a href="{{ group[1] }}">{{ group[0] }}</a>
+          </p>
+          <p>
+            {{ group[3] }}
+            {% if group[4] %}
+              <br>&emsp;{{ group[4] }}
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
