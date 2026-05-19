@@ -1,0 +1,85 @@
+---
+layout: default
+title: 関西Ruby会議
+---
+
+<style type="text/css">
+  .event-card {
+    background-color: #fffffe;
+    min-height: 150px;
+  }
+
+  .event-logo {
+    max-height: 165px;
+    margin: 0 auto 12px;
+    object-fit: contain;
+  }
+
+  .event-meta {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .event-meta:last-child {
+    margin-bottom: 0;
+  }
+
+  .event-location {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 768px) {
+    .event-card {
+      height: 230px;
+    }
+  }
+</style>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <p>地域Ruby会議は、RubyKaigi のようなイベントをいろいろな地域で開催するプロジェクトです。 このページでは、関西に関連する地域Ruby会議をまとめています。</p>
+    <p>
+      <a href="https://regional.rubykaigi.org/">公式 Regional RubyKaigi ページ</a>
+    </p>
+  </div>
+</div>
+
+{% capture events_data %} 関西Ruby会議09|2026-07-18|大津市伝統芸能会館|https://regional.rubykaigi.org/kansai09/|https://regional.rubykaigi.org/kansai09/ogp.png
+関西Ruby会議08|2025-06-28|先斗町歌舞練場|https://regional.rubykaigi.org/kansai08/|https://rubykansai.github.io/kansai08/ogp.jpg 大阪Ruby会議04|2024-08-24|中之島フェスティバルタワーウエスト 4F
+中之島会館|https://rubykansai.github.io/osaka04/|https://rubykansai.github.io/osaka04/ogp.png 大阪Ruby会議03|2023-09-09|ハートンホテル心斎橋別館
+松風ホール|https://rubykansai.github.io/osaka03/|https://regional.rubykaigi.org/osaka03/assets/images/og.png 大阪Ruby会議02|2019-09-15|大阪科学技術センター
+大ホール|https://regional.rubykaigi.org/osaka02/|https://raw.githubusercontent.com/rubykansai/osaka02/master/src/assets/images/og.png 大阪Ruby会議01|2018-07-21|大阪科学技術センター 4階
+401号室|https://regional.rubykaigi.org/osaka01/|https://raw.githubusercontent.com/rubykansai/osaka01/master/src/assets/images/og.png 関西Ruby会議2017|2017-05-27|大阪産業創造館 4F
+イベントホール|https://regional.rubykaigi.org/kansai2017/|https://rubykansai.github.io/kansai2017/images/ogp.png 関西Ruby会議06|2015-07-11|エムオーテックス新大阪ビル
+エムオーテックスホール|https://regional.rubykaigi.org/kansai06/|https://regional.rubykaigi.org/kansai06/assets/img/rubykaigi.png
+関西Ruby会議05|2013-08-31|TIS大阪本社|https://regional.rubykaigi.org/kansai05/|https://regional.rubykaigi.org/kansai05/images/top/webdesign.jpg 関西Ruby会議04|2011-11-11〜2011-11-12|大阪南港ATC ITM棟
+10F デザインギャラリー・デザインショーケース|https://regional.rubykaigi.org/kansai04/|https://regional.rubykaigi.org/images/kansai04/attendee_taiyou.png
+関西Ruby会議03|2010-11-05〜2010-11-06|大阪南港ATC ITM棟 6F マーレギャラリー|https://regional.rubykaigi.org/kansai03/|/assets/img/rubyhexagon.png 関西Ruby会議02|2009-11-06〜2009-11-07|大阪南港ATC ITM棟
+6F マーレギャラリー|https://regional.rubykaigi.org/kansai02/|/assets/img/rubyhexagon.png 関西Ruby会議01|2008-11-07〜2008-11-08|大阪南港ATC ITM棟 6F
+マーレギャラリー|https://regional.rubykaigi.org/kansai01/|/assets/img/rubyhexagon.png {% endcapture %} {% assign events = events_data | strip | split: ' ' %}
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <h2>関西関連の地域Ruby会議</h2>
+  </div>
+
+  {% for event_line in events %} {% assign event = event_line | split: '|' %}
+  <div class="col-lg-6">
+    <div class="well event-card col-lg-12">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <a href="{{ event[3] }}">
+          <img class="event-logo img-responsive" src="{% if event[4] contains 'http' %}{{ event[4] }}{% else %}{{ site.baseurl }}{{ event[4] }}{% endif %}" alt="{{ event[0] }}" />
+        </a>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <p class="event-meta">
+          <a href="{{ event[3] }}">{{ event[0] }}</a>
+        </p>
+        <p class="event-meta">{{ event[1] }}</p>
+        <p class="event-meta event-location">{{ event[2] }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
