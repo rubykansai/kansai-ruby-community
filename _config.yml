@@ -7,6 +7,6 @@ encoding: UTF-8
 exclude:
   - README.md
   - vendor
-name: "関西 Ruby コミュニティー"
+name: "関西Rubyコミュニティ"
 copyright: 2026, Ruby 関西
 swatchtheme: simplex
